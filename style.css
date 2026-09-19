@@ -1,0 +1,156 @@
+/* General */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f8;
+  color: #222;
+  line-height: 1.5;
+}
+
+/* Hero */
+.hero {
+  padding: 60px 20px;
+  background-color: #0071c5;
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intel-logo {
+  width: 90px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.hero h1 {
+  margin: 0 0 15px;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.hero p {
+  margin: 0;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 30px 20px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+/* Cards */
+.timeline-card {
+  flex: 0 0 340px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+h2 {
+  color: #333;
+}
+
+.year {
+  color: #333;
+}
+
+/* This selector is more specific than .year, so it takes priority. */
+.timeline-card .year {
+  margin: 0 0 5px;
+  color: #0071c5;
+  font-weight: bold;
+}
+
+.card-title {
+  margin: 0 0 15px;
+}
+
+.card-description {
+  max-height: 0;
+  margin: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, margin 0.3s ease, opacity 0.3s ease;
+}
+
+/* Images */
+.card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effects */
+.timeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+}
+
+.timeline-card:hover .card-description {
+  max-height: 300px;
+  margin-top: 15px;
+  opacity: 1;
+}
+
+.card-image:hover {
+  transform: scale(1.05);
+}
+
+.timeline-instructions {
+  margin: 0;
+  padding: 0 20px 30px;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero {
+    padding: 40px 16px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .timeline {
+    flex-direction: column;
+    overflow-x: visible;
+    padding: 20px 16px;
+    scroll-snap-type: none;
+  }
+
+  .timeline-card {
+    flex: 1 1 auto;
+    width: 100%;
+    padding: 16px;
+  }
+
+  .card-description {
+    max-height: none;
+    margin-top: 15px;
+    opacity: 1;
+    overflow: visible;
+  }
+
+  .timeline-instructions {
+    padding: 0 16px 20px;
+  }
+}
